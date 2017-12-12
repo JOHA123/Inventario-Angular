@@ -1,0 +1,13 @@
+<div class="formulario">
+    <input type="text" placeholder="Codigo Personal" name="codigo" [(ngModel)]="model.codigo" #codigo="ngModel">
+    <input type="text" placeholder="Nombre Personal" name="nombre" [(ngModel)]="model.nombre" #nombre="ngModel">    
+</div>
+<div class="boton" (click)="agregarPersona()">
+  <span class="diseno-boton">Agregar Persona</span>
+</div>
+<br>
+<div class="listado-productos">
+  <div class="producto" *ngFor="let persona of listadoPersonas | async">
+    {{persona.codigo}} | {{persona.nombre}}
+  </div>
+</div>

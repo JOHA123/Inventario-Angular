@@ -1,0 +1,15 @@
+<div class="formulario">
+    <input type="text" placeholder="Codigo Proveedor" name="codigo" [(ngModel)]="model.codigo" #codigo="ngModel">
+    <input type="text" placeholder="Nombre Proveedor" name="nombre" [(ngModel)]="model.nombre" #nombre="ngModel">    
+    <input type="text" placeholder="Telefono" name="telefono" [(ngModel)]="model.telefono" #telefono="ngModel">
+    <input type="text" placeholder="Email" name="email" [(ngModel)]="model.email" #email="ngModel">
+</div>
+<div class="boton" (click)="agregarProveedor()">
+  <span class="diseno-boton">Agregar Proveedor</span>
+</div>
+<br>
+<div class="listado-productos">
+  <div class="producto" *ngFor="let proveedor of listadoProveedores | async">
+    {{proveedor.codigo}} | {{proveedor.nombre}} | {{proveedor.telefono}} | {{proveedor.email}} 
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="formulario">
+    <select name="producto" [(ngModel)]="model.producto" #productos="ngModel" >
+        <option [ngValue]="producto" *ngFor="let producto of listadoProductos | async">{{producto.codigo}} - {{producto.nombre}}</option>
+    </select>
+    <input type="text" placeholder="Precio" name="precio" [(ngModel)]="model.precio" #precio="ngModel">
+    <input type="text" placeholder="Cantidad" name="cantidad" [(ngModel)]="model.cantidad" #cantidad="ngModel">
+    <input type="date" placeholder="Fecha" name="fecha" [(ngModel)]="model.fecha" #fecha="ngModel">
+    <select name="proveedor" [(ngModel)]="model.proveedor" #proveedor="ngModel" >
+        <option [ngValue]="proveedor" *ngFor="let proveedor of listadoProveedores | async">{{proveedor.codigo}} - {{proveedor.nombre}}</option>
+    </select>
+    <select name="persona" [(ngModel)]="model.persona" #persona="ngModel" >
+        <option [ngValue]="persona" *ngFor="let persona of listadoPersonas | async">{{persona.codigo}} - {{persona.nombre}}</option>
+    </select>     
+</div>
+<div class="boton" (click)="agregarEntrada()">
+  <span class="diseno-boton">Agregar entrada</span>
+</div>
+<br>
+<div class="listado-productos">
+  <div class="producto" *ngFor="let persona of listadoPersonas | async">
+    
+  </div>
+</div>
+
+
+

@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+.formulario {
+    display: flex;
+    justify-content: center;
+}
+
+.boton {
+    display: flex;
+    justify-content: center;
+}
+
+.diseno-boton {
+    color: #fff;
+    background-color: #0881A3;
+    padding: 1em 2em;
+    width: 15em;
+    text-align: center;
+    cursor: pointer;
+}
+
+.listado-productos{
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+input, select{
+    padding: 1em 2em;
+    margin: 0.5em;
+}
+

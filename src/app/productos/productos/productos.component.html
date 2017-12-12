@@ -1,0 +1,14 @@
+<div class="formulario">
+    <input type="text" placeholder="Nombre Producto" name="nombre" [(ngModel)]="model.nombre" #nombre="ngModel">
+    <input type="text" placeholder="Codigo Producto" name="codigo" [(ngModel)]="model.codigo" #codigo="ngModel">
+    <input type="text" placeholder="Cantidad Minima Producto" name="cantidadMinima" [(ngModel)]="model.cantidadMinima" #cantidadMinima="ngModel">
+</div>
+<div class="boton" (click)="agregarProducto()">
+  <span class="diseno-boton">Agregar Producto</span>
+</div>
+<br>
+<div class="listado-productos">
+  <div class="producto" *ngFor="let producto of listadoProductos | async">
+    {{producto.codigo}} | {{producto.nombre}} | {{producto.cantidadMinima}} 
+  </div>
+</div>
