@@ -1,13 +1,24 @@
-<div class="formulario">
+<div class="box">
     <input type="text" placeholder="Codigo Personal" name="codigo" [(ngModel)]="model.codigo" #codigo="ngModel">
-    <input type="text" placeholder="Nombre Personal" name="nombre" [(ngModel)]="model.nombre" #nombre="ngModel">    
+    <input type="text" placeholder="Nombre Personal" name="nombre" [(ngModel)]="model.nombre" #nombre="ngModel"> 
+    <div class="boton" (click)="agregarPersona()">
+      <span class="btn two">Agregar Persona</span>
+    </div>   
 </div>
-<div class="boton" (click)="agregarPersona()">
-  <span class="diseno-boton">Agregar Persona</span>
-</div>
-<br>
+
 <div class="listado-productos">
-  <div class="producto" *ngFor="let persona of listadoPersonas | async">
-    {{persona.codigo}} | {{persona.nombre}}
-  </div>
+  <table class="table-fill">
+    <thead>
+      <tr>
+        <th>Codigo</th>
+        <th>Nombre</th> 
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let persona of listadoPersonas | async">
+        <td>{{persona.codigo}}</td>
+        <td>{{persona.nombre}}</td> 
+      </tr>
+    </tbody>    
+  </table>
 </div>
