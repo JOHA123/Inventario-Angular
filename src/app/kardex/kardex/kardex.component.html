@@ -33,17 +33,63 @@
         <select name="persona" [(ngModel)]="model.persona" #persona="ngModel">
             <option [ngValue]="persona" *ngFor="let persona of listadoPersonas | async">{{persona.codigo}} - {{persona.nombre}}</option>
         </select>
-    </div>     
+    </div>   
+    <div class="boton" (click)="agregarEntrada()">
+        <span class="btn two">Agregar entrada</span>
+    </div>  
 </div>
 
-<div class="boton" (click)="agregarEntrada()">
-  <span class="diseno-boton">Agregar entrada</span>
-</div>
-<br>
-<div class="listado-productos">
-  <div class="producto" *ngFor="let persona of listadoPersonas | async">
-    
-  </div>
+
+
+<div class="tablas-dobles">
+    <div>
+        <h1 class="titulo-tabla">Entradas</h1>
+        <table class="table-fill">
+            <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Fecha</th> 
+                <th>Proveedor</th>
+                <th>Precio</th>
+            </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let kardex of listadoKardex | async">
+                    <tr *ngIf="kardex.tipo == 'entrada'">
+                        <td>{{kardex.producto.nombre}}</td>
+                        <td>{{kardex.cantidad | number}}</td>
+                        <td>{{kardex.fecha}}</td> 
+                        <td>{{kardex.proveedor.nombre}}</td>
+                        <td>{{kardex.precio | number}} CLP</td>                
+                    </tr>
+                </ng-container>            
+            </tbody>    
+        </table>
+    </div>
+    <div>
+        <h1 class="titulo-tabla">Salidas</h1>
+        <table class="table-fill">
+            <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th> 
+                <th>Fecha</th>
+                <th>Persona</th>
+            </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let kardex of listadoKardex | async">
+                    <tr *ngIf="kardex.tipo == 'salida'">
+                        <td>{{kardex.producto.nombre}}</td>
+                        <td>{{kardex.cantidad | number}}</td>
+                        <td>{{kardex.fecha}}</td> 
+                        <td>{{kardex.persona.nombre}}</td>
+                    </tr>
+                </ng-container>            
+            </tbody>    
+        </table>
+    </div>
 </div>
 
 
