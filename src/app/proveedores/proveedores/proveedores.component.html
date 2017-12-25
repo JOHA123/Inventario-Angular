@@ -16,14 +16,18 @@
           <th>Nombre</th> 
           <th>Telefono</th>
           <th>Email</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let proveedor of listadoProveedores | async">
-          <td>{{proveedor.codigo}}</td>
-          <td>{{proveedor.nombre}}</td> 
-          <td>{{proveedor.telefono}}</td>
-          <td>{{proveedor.email}}</td>
+          <td>{{proveedor.payload.val().codigo}}</td>
+          <td>{{proveedor.payload.val().nombre}}</td> 
+          <td>{{proveedor.payload.val().telefono}}</td>
+          <td>{{proveedor.payload.val().email}}</td>
+          <td>
+              <img class="clickable" (click)="eliminarProveedor(proveedor.key)" src="../../../assets/img/eraser.svg" /> 
+          </td>
         </tr>
       </tbody>    
     </table>

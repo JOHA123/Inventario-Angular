@@ -11,12 +11,15 @@ export class PersonasService {
     this.personas = this.firebase.list('personas');
    }
 
-   agregar(producto){
+   agregar(producto) {
     this.personas.push(producto);
   }
 
-  mostrar(){
-    return this.personas.valueChanges();
+  mostrar() {
+    return this.personas.snapshotChanges();
   }
 
+  eliminar(id) {
+    this.personas.remove(id);
+  }
 }

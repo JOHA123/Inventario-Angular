@@ -18,9 +18,13 @@ export class ProveedoresComponent implements OnInit {
   ngOnInit() {
   }
 
-  agregarProveedor(){
+  agregarProveedor() {
     this.proveedores.agregar(this.model);
     this.model = {};
+  }
+
+  eliminarProveedor(id) {
+    this.proveedores.eliminar(id);
   }
 
 }

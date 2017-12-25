@@ -11,12 +11,16 @@ export class ProductosService {
     this.productos = this.firebase.list('productos');
   }
 
-  agregar(producto){
+  agregar(producto) {
     this.productos.push(producto);
   }
 
-  mostrar(){
-    return this.productos.valueChanges();
+  mostrar() {
+    return this.productos.snapshotChanges();
+  }
+
+  eliminar(id) {
+    this.productos.remove(id);
   }
 
 }

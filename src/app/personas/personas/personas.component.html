@@ -1,9 +1,9 @@
 <div class="box">
     <input type="text" placeholder="Codigo Personal" name="codigo" [(ngModel)]="model.codigo" #codigo="ngModel">
-    <input type="text" placeholder="Nombre Personal" name="nombre" [(ngModel)]="model.nombre" #nombre="ngModel"> 
+    <input type="text" placeholder="Nombre Personal" name="nombre" [(ngModel)]="model.nombre" #nombre="ngModel">
     <div class="boton" (click)="agregarPersona()">
       <span class="btn two">Agregar Persona</span>
-    </div>   
+    </div>
 </div>
 
 <div class="listado-productos">
@@ -11,14 +11,18 @@
     <thead>
       <tr>
         <th>Codigo</th>
-        <th>Nombre</th> 
+        <th>Nombre</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let persona of listadoPersonas | async">
-        <td>{{persona.codigo}}</td>
-        <td>{{persona.nombre}}</td> 
+        <td>{{ persona.payload.val().codigo }}</td>
+        <td>{{ persona.payload.val().nombre }}</td>
+        <td>
+          <img class="clickable" (click)="eliminarPersona(persona.key)" src="../../../assets/img/eraser.svg" /> 
+        </td>
       </tr>
-    </tbody>    
+    </tbody>
   </table>
 </div>

@@ -13,14 +13,17 @@ export class ProductosComponent implements OnInit {
 
   constructor(public productos: ProductosService) {
     this.listadoProductos = this.productos.mostrar();
-    this.listadoProductos.subscribe(resultado => console.log(resultado));
   }
 
   ngOnInit() {
   }
 
-  agregarProducto(){
+  agregarProducto() {
     this.productos.agregar(this.model);
     this.model = {};
+  }
+
+  eliminarProducto(id) {
+    this.productos.eliminar(id);
   }
 }

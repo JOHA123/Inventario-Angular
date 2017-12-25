@@ -9,7 +9,6 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-
 .menu{
     display: flex;
     flex-wrap: wrap;
@@ -154,7 +153,7 @@ th {
   }
    
   tr:hover td {
-    background:rgb(46, 116, 209);
+    background:rgb(148, 157, 168);
     color:#FFFFFF;
  }
    
@@ -171,7 +170,7 @@ th {
   }
    
   tr:nth-child(odd):hover td {
-    background:rgb(46, 116, 209);
+    background:rgb(148, 157, 168);
   }
   
   tr:last-child td:first-child {
@@ -360,4 +359,8 @@ ul.subnav li a.active::before {
 .titulo-tabla{
     color: #FFF;
     text-align: center;
+}
+
+.clickable{
+    cursor: pointer;
 }

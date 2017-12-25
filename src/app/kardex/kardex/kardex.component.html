@@ -52,16 +52,20 @@
                 <th>Fecha</th> 
                 <th>Proveedor</th>
                 <th>Precio</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
                 <ng-container *ngFor="let kardex of listadoKardex | async">
-                    <tr *ngIf="kardex.tipo == 'entrada'">
-                        <td>{{kardex.producto.nombre}}</td>
-                        <td>{{kardex.cantidad | number}}</td>
-                        <td>{{kardex.fecha}}</td> 
-                        <td>{{kardex.proveedor.nombre}}</td>
-                        <td>{{kardex.precio | number}} CLP</td>                
+                    <tr *ngIf="kardex.payload.val().tipo == 'entrada'">
+                        <td>{{kardex.payload.val().producto.nombre}}</td>
+                        <td>{{kardex.payload.val().cantidad | number}}</td>
+                        <td>{{kardex.payload.val().fecha}}</td> 
+                        <td>{{kardex.payload.val().proveedor.nombre}}</td>
+                        <td>{{kardex.payload.val().precio | number}} CLP</td>
+                        <td>
+                            <img class="clickable" (click)="eliminarEntrada(kardex.key)" src="../../../assets/img/eraser.svg" /> 
+                        </td>                
                     </tr>
                 </ng-container>            
             </tbody>    
@@ -76,15 +80,19 @@
                 <th>Cantidad</th> 
                 <th>Fecha</th>
                 <th>Persona</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
                 <ng-container *ngFor="let kardex of listadoKardex | async">
-                    <tr *ngIf="kardex.tipo == 'salida'">
-                        <td>{{kardex.producto.nombre}}</td>
-                        <td>{{kardex.cantidad | number}}</td>
-                        <td>{{kardex.fecha}}</td> 
-                        <td>{{kardex.persona.nombre}}</td>
+                    <tr *ngIf="kardex.payload.val().tipo == 'salida'">
+                        <td>{{kardex.payload.val().producto.nombre}}</td>
+                        <td>{{kardex.payload.val().cantidad | number}}</td>
+                        <td>{{kardex.payload.val().fecha}}</td> 
+                        <td>{{kardex.payload.val().persona.nombre}}</td>
+                        <td>
+                            <img class="clickable" (click)="eliminarEntrada(kardex.key)" src="../../../assets/img/eraser.svg" /> 
+                        </td>
                     </tr>
                 </ng-container>            
             </tbody>    

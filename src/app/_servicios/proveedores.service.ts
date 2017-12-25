@@ -4,19 +4,23 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class ProveedoresService {
-  
+
   proveedores: any;
 
   constructor(public firebase: AngularFireDatabase) {
     this.proveedores = this.firebase.list('proveedores');
    }
 
-   agregar(proveedor){
+   agregar(proveedor) {
     this.proveedores.push(proveedor);
    }
 
-   mostrar(){
-    return this.proveedores.valueChanges();
+   mostrar() {
+    return this.proveedores.snapshotChanges();
+   }
+
+   eliminar(id) {
+     this.proveedores.remove(id);
    }
 
 }

@@ -11,12 +11,16 @@ export class KardexService {
     this.kardex = this.firebase.list('kardex');
    }
 
-   agregar(kardex){
+   agregar(kardex) {
     this.kardex.push(kardex);
    }
 
-   mostrar(){
-    return this.kardex.valueChanges();
+   mostrar() {
+    return this.kardex.snapshotChanges();
+   }
+
+   eliminar(id) {
+    this.kardex.remove(id);
    }
 
 }
