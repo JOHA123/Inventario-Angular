@@ -9,18 +9,22 @@ export class KardexService {
 
   constructor(public firebase: AngularFireDatabase) {
     this.kardex = this.firebase.list('kardex');
-   }
+  }
 
-   agregar(kardex) {
+  agregar(kardex) {
     this.kardex.push(kardex);
-   }
+  }
 
-   mostrar() {
+  mostrar() {
     return this.kardex.snapshotChanges();
-   }
+  }
 
-   eliminar(id) {
+  eliminar(id) {
     this.kardex.remove(id);
-   }
+  }
+
+  contar() {
+    return this.kardex.valueChanges();
+  }
 
 }

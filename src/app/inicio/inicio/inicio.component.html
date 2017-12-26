@@ -1,0 +1,24 @@
+<div class="listado-productos">
+  <table class="table-fill">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Codigo</th>
+        <th>Nombre</th> 
+        <th>Cantidad Minima</th>
+        <th>Cantidad Actual</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let producto of listadoProductos | async">
+        <td [ngClass]="{'faltante': producto.payload.val().cantidadMinima >= sumatorias[producto.payload.val().codigo]}"></td>
+        <td>{{producto.payload.val().codigo}}</td>
+        <td>{{producto.payload.val().nombre}}</td> 
+        <td>{{producto.payload.val().cantidadMinima}}</td>
+        <td>
+          {{sumatorias[producto.payload.val().codigo]}}
+        </td>
+      </tr>
+    </tbody>    
+  </table>
+</div>

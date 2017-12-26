@@ -17,6 +17,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { ProductosComponent } from './productos/productos/productos.component';
 import { KardexComponent } from './kardex/kardex/kardex.component';
 import { ProveedoresComponent } from './proveedores/proveedores/proveedores.component';
+import { InicioComponent } from './inicio/inicio/inicio.component';
 
 /* SERVICIOS */
 import { KardexService } from 'app/_Servicios/kardex.service';
@@ -25,9 +26,11 @@ import { ProveedoresService } from 'app/_Servicios/proveedores.service';
 import { PersonasComponent } from './personas/personas/personas.component';
 import { PersonasService } from 'app/_Servicios/personas.service';
 
+
 /* ROUTING */
 
 const appRoutes: Routes = [
+  { path: '', component: InicioComponent, data: { title: 'Iniciar Sesion'}},
   { path: 'productos', component: ProductosComponent, data: { title: 'Iniciar Sesion'}},
   { path: 'inventario', component: KardexComponent, data: { title: 'Iniciar Sesion'}},
   { path: 'proveedores', component: ProveedoresComponent, data: { title: 'Iniciar Sesion'}},
@@ -40,7 +43,8 @@ const appRoutes: Routes = [
     ProductosComponent,
     KardexComponent,
     ProveedoresComponent,
-    PersonasComponent
+    PersonasComponent,
+    InicioComponent
   ],
   imports: [
     BrowserModule,
