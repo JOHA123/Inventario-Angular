@@ -26,4 +26,9 @@ export class ProductosComponent implements OnInit {
   eliminarProducto(id) {
     this.productos.eliminar(id);
   }
+
+  editarCantidadMinima(cantidad, id) {
+    console.log(cantidad);
+    console.log(id);
+  }
 }

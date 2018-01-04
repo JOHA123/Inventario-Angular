@@ -373,5 +373,5 @@ ul.subnav li a.active::before {
 }
 
 .faltante {
-    background-color: red;
+    background-color: red!important;
 }

@@ -49,4 +49,17 @@ export class InicioComponent implements OnInit {
       }
     });
   }
+
+  transformarDouble(numero) {
+    return parseFloat(numero);
+  }
+
+  esMayor(base, comparacion) {
+    if (parseFloat(base) >= parseFloat(comparacion)) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
 }

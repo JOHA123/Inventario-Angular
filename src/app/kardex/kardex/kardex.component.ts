@@ -38,8 +38,15 @@ export class KardexComponent implements OnInit {
   }
 
   agregarEntrada() {
+    this.model.producto = this.model.producto.payload.val();
+    if (this.seleccionadoSalida) {
+      this.model.persona = this.model.persona.payload.val();
+    }
+    if (this.seleccionadoEntrada) {
+      this.model.proveedor = this.model.proveedor.payload.val();
+    }
+    debugger;
     this.kardex.agregar(this.model);
-    console.log(this.model);
   }
 
   seleccionarEntrada() {

@@ -11,7 +11,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let producto of listadoProductos | async">
-        <td [ngClass]="{'faltante': producto.payload.val().cantidadMinima >= sumatorias[producto.payload.val().codigo]}"></td>
+        <td [ngClass]="{'faltante': esMayor(producto.payload.val().cantidadMinima, sumatorias[producto.payload.val().codigo]) }"></td>
         <td>{{producto.payload.val().codigo}}</td>
         <td>{{producto.payload.val().nombre}}</td> 
         <td>{{producto.payload.val().cantidadMinima}}</td>

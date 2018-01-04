@@ -22,7 +22,9 @@
       <tr *ngFor="let producto of listadoProductos | async">
         <td>{{producto.payload.val().codigo}}</td>
         <td>{{producto.payload.val().nombre}}</td> 
-        <td>{{producto.payload.val().cantidadMinima}}</td>
+        <td>
+          <input type="text" class="editable" (change)="editarCantidadMinima(producto.cantidadMinima, producto.key)" (click)="producto.cantidadMinima = producto.payload.val().cantidadMinima" [value]="producto.payload.val().cantidadMinima" [(ngModel)]="producto.cantidadMinima" >
+        </td>
         <td>
             <img class="clickable" (click)="eliminarProducto(producto.key)" src="../../../assets/img/eraser.svg" /> 
         </td>
